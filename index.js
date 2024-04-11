@@ -2,7 +2,7 @@
 // require("update-electron-app")();
 
 const {menubar} = require("menubar");
-const Nucleus = require("nucleus-analytics");
+const Analytics = require('electron-google-analytics4').default;
 
 const path = require("path");
 const {
@@ -11,10 +11,11 @@ const {
 const contextMenu = require("electron-context-menu");
 
 const image = nativeImage.createFromPath(path.join(__dirname, `images/menubar/icon.png`));
+const analytics = new Analytics('G-33HV8DVL5W', 'RJD5WsBDR2yQrQ_9R0OyBA');
+analytics.setParams({"engagement_time_msec": 1});
 
 app.on("ready", () => {
-  // Nucleus.init("638d9ccf4a5ed2dae43ce122");
-
+  analytics.event('page_ready');
   const tray = new Tray(image);
 
   const mb = menubar({
@@ -32,7 +33,6 @@ app.on("ready", () => {
 
   mb.on("ready", () => {
     const {window} = mb;
-
 
     if (process.platform !== "darwin") {
       window.setSkipTaskbar(true);
@@ -72,6 +72,7 @@ app.on("ready", () => {
     tray.on("click", (e) => {
       //check if ctrl or meta key is pressed while clicking
       e.ctrlKey || e.metaKey ? mb.tray.popUpContextMenu(Menu.buildFromTemplate(contextMenuTemplate)) : null;
+      analytics.event('page_view');
     });
     const menu = new Menu();
 
