@@ -1,6 +1,6 @@
 {
-  "name": "menubar-starter",
-  "productName": "menubar-starter",
+  "name": "icloud-app",
+  "productName": "iCloud Apps",
   "version": "9.9.9",
   "description": "Menubar app",
   "main": "index.js",

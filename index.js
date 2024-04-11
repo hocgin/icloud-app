@@ -51,13 +51,13 @@ app.on("ready", () => {
         },
       }, {
         label: "Open in browser", click: () => {
-          shell.openExternal("https://logspot.hocgin.top/");
+          shell.openExternal("https://www.icloud.com");
         },
       }, {
         type: "separator",
       }, {
         label: "View on GitHub", click: () => {
-          shell.openExternal("https://github.com/hocgin");
+          shell.openExternal("https://github.com/hocgin/icloud-app");
         },
       }, {
         label: "Author on Twitter", click: () => {
