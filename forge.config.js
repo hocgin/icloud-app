@@ -1,8 +1,8 @@
 const {parsed} = require("dotenv").config();
 module.exports = {
   packagerConfig: {
-    name: "iCloud Apps",
-    executableName: "iCloud Apps",
+    name: "iCloudApps",
+    executableName: "iCloudApps",
     icon: "images/icon",
     appBundleId: "com.hocgin.icloud-app",
     extendInfo: {
