@@ -3,6 +3,8 @@
 
 const {menubar} = require("menubar");
 const Analytics = require('electron-google-analytics4').default;
+const analytics = new Analytics('G-33HV8DVL5W', 'RJD5WsBDR2yQrQ_9R0OyBA');
+analytics.setParams({"engagement_time_msec": 1});
 
 const path = require("path");
 const {
@@ -11,8 +13,6 @@ const {
 const contextMenu = require("electron-context-menu");
 
 const image = nativeImage.createFromPath(path.join(__dirname, `images/menubar/icon.png`));
-const analytics = new Analytics('G-33HV8DVL5W', 'RJD5WsBDR2yQrQ_9R0OyBA');
-analytics.setParams({"engagement_time_msec": 1});
 
 app.on("ready", () => {
   analytics.event('page_ready');
